@@ -5,8 +5,7 @@ import (
 	"math"
 	"math/rand"
 	"time"
-
-	"trackLogicChess/player"
+	"trackLogicChess/internal/player"
 )
 
 /* ---------- 基础结构 ---------- */

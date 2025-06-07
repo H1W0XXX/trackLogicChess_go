@@ -1,7 +1,9 @@
 // File game/rules.go
 package game
 
-import "trackLogicChess/player"
+import (
+	"trackLogicChess/internal/player"
+)
 
 // CheckWin 检查指定颜色 col 是否在棋盘 b 上已连成 4 子。
 // 返回 true 表示该颜色已在某一行、某一列或两条对角线上有 4 个连续的棋子。

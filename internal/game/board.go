@@ -4,8 +4,7 @@ package game
 import (
 	"fmt"
 	"strings"
-
-	"trackLogicChess/player"
+	"trackLogicChess/internal/player"
 )
 
 // Board 表示一个 4×4 棋盘，cells[r][c] 存储第 r 行、第 c 列的棋子颜色。
@@ -83,4 +82,14 @@ func (b *Board) String() string {
 // DebugPrint 简单地将棋盘输出到标准输出，方便调试。
 func (b *Board) DebugPrint() {
 	fmt.Println(b.String())
+}
+
+func (b *Board) Clone() *Board {
+	nb := *b // 值拷贝（数组元素也会被复制）
+	return &nb
+}
+
+// Cell 返回 (r,c) 处的棋子颜色
+func (b *Board) Cell(r, c int) player.Color {
+	return b.cells[r][c]
 }

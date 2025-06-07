@@ -1,7 +1,9 @@
 // File game/ring.go
 package game
 
-import "trackLogicChess/player"
+import (
+	"trackLogicChess/internal/player"
+)
 
 // RotateOuter 对 4×4 棋盘的外圈 12 个格子执行“环移”一格操作。
 // 外圈坐标（顺时针顺序）为：

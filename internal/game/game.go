@@ -1,10 +1,10 @@
-// 文件：game/game.go
+// File game/game.go
 package game
 
 import (
 	"errors"
 	"fmt"
-	"trackLogicChess/player"
+	"trackLogicChess/internal/player"
 )
 
 // Direction 表示旋转方向。
@@ -58,16 +58,16 @@ func (g *GameState) ApplyMove(r, c int) error {
 	g.Board.Set(r, c, g.CurrentPlayer)
 
 	// 打印落子后但未旋转前的棋盘（可选调试）
-	fmt.Println("\n--- 旋转前棋盘 ---")
-	g.Board.DebugPrint()
+	//fmt.Println("\n--- 旋转前棋盘 ---")
+	//g.Board.DebugPrint()
 
 	// 3. 使用固定方向做旋转
 	RotateOuter(g.Board, g.DirOuter)
 	RotateInner(g.Board, g.DirInner)
 
-	// 打印旋转后的棋盘（可选调试）
-	// fmt.Println("\n--- 旋转后棋盘 ---")
-	// g.Board.DebugPrint()
+	//打印旋转后的棋盘（可选调试）
+	fmt.Println("\n--- 旋转后棋盘 ---")
+	g.Board.DebugPrint()
 
 	// 4. 旋转完成后，先判断当前玩家和对手是否同时连成 4
 	selfWin := CheckWin(g.Board, g.CurrentPlayer)
