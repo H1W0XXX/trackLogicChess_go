@@ -63,7 +63,7 @@ func launchGUI(gs *game.GameState, ai bool) {
 	app := ui.NewApp(gs, ai)
 	ebiten.SetWindowTitle("Track Logic Chess")
 	ebiten.SetWindowResizable(false)
-	ebiten.SetFPSMode(ebiten.FPSModeVsyncOffMinimum)
+
 	ebiten.SetTPS(30)
 	if err := ebiten.RunGame(app); err != nil {
 		log.Fatal(err)

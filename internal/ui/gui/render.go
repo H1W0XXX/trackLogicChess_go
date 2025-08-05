@@ -194,8 +194,14 @@ func (a *animator) Draw(
 	}
 }
 
+var firstFrame = true
+
 // Update 每帧调用，检查是否结束动画
 func (a *animator) Update() {
+	if firstFrame {
+		firstFrame = false
+		ebiten.SetFPSMode(ebiten.FPSModeVsyncOffMinimum) // 已经进入事件循环，安全
+	}
 	if !a.active {
 		return
 	}
