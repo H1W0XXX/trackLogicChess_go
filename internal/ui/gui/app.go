@@ -62,6 +62,7 @@ func (a *App) Update() error {
 			)
 			a.pendingPrev = nil
 		}
+		enterPerf()
 		return nil
 	}
 	// 3) 人类回合：点击立刻落子并动画
@@ -72,7 +73,7 @@ func (a *App) Update() error {
 		if r >= 0 && r < 4 && c >= 0 && c < 4 && a.state.Board.IsEmpty(r, c) {
 			prev := a.state.Board.Clone()
 			if err := a.state.ApplyMove(r, c); err == nil {
-				
+				leavePerf()
 				a.anim.Start(
 					prev,
 					a.state.Board,
