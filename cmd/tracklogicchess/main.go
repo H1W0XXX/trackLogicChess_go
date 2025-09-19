@@ -63,6 +63,8 @@ func launchGUI(gs *game.GameState, ai bool) {
 	app := ui.NewApp(gs, ai)
 	ebiten.SetWindowTitle("Track Logic Chess")
 	ebiten.SetWindowResizable(false)
+
+	ebiten.SetTPS(30)
 	if err := ebiten.RunGame(app); err != nil {
 		log.Fatal(err)
 	}
@@ -139,3 +141,5 @@ func directionString(d game.Direction) string {
 	}
 	return "逆时针"
 }
+
+// go build -ldflags="-s -w" -gcflags="all=-trimpath=${PWD}" -asmflags="all=-trimpath=${PWD}" -o trackLogicChess.exe .\cmd\trackLogicChess\main.go
